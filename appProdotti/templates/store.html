@@ -16,12 +16,19 @@
     width: 350px;
     height: 250px;
   }
+  .card img {
+
+     width: 150px !important;
+    height: 100px !Important;
+
+  }
 
 </style>
 </head>
 
 <body>
 <div class = "container">
+    <h1 class = "text-center">Supermarket talentform</h1>
 <div id="carouselExampleDark" class="carousel carousel-dark slide">
 
   <div class="carousel-inner">
@@ -53,6 +60,26 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+    <h1> Acquista i nostri prodotti dallo store</h1>
+    <form action = "/buy" method ="POST">
+    <div class="card-group">
+        {% for prod in lista %}
+  <div class="card">
+    <img src="{{prod[4]}}" class="card-img-top mx-auto" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{prod[1]}}</h5>
+      <p class="card-text text-center">Marca: {{prod[2]}} </p>
+      <p class="card-text text-center"><small class="text-body-secondary">Prezzo: {{prod[3]}} </small></p>
+        <input class = "text-center" type = "number" value = 0 name = "prodA">
+        <input class = "text-center"  type = "hidden" value = {{prod[0]}} name = "prodN">
+    </div>
+  </div>
+
+        {% endfor %}
+
+  </div>
+        <input type = "submit" value = "Acquista">
+        </form>
 </div>
 </body>
 </html>
